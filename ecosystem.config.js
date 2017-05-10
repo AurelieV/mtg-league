@@ -29,7 +29,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://github.com/AurelieV/mtg-league.git',
       path : '/home/orwel/mtg-league',
-      'post-deploy' : 'yarn install && npm build'
+      'post-deploy' : 'yarn install && ./node_modules/.bin/ng build'
     }
   }
 };
