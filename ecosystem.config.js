@@ -8,13 +8,14 @@ module.exports = {
     // First application
     {
       name      : 'mtg-league-api',
-      script    : 'server/server.js',
+      script    : 'dist/server/index.js',
       env: {
         COMMON_VARIABLE: 'true'
       },
       env_production : {
         NODE_ENV: 'production'
-      }
+      },
+      watch: [ "dist/server" ]
     }
   ],
 
@@ -29,7 +30,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://github.com/AurelieV/mtg-league.git',
       path : '/home/orwel/mtg-league',
-      'post-deploy' : 'yarn install && ./node_modules/.bin/ng build'
+      'post-deploy' : 'yarn install && npm run build && pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
 };
